@@ -19,3 +19,4 @@ before_install:
   - cd cello-webapp/
 after_success:
   - if [ "$TRAVIS_OS_NAME" = "linux" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$DOCKER_USERNAME" != "" ] && [ "$DOCKER_PASSWORD" != "" ]; then mvn docker:build -B && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && mvn docker:push -B; fi
+
